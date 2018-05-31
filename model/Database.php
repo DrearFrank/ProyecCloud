@@ -8,10 +8,10 @@
 class Database {
 
     //Propiedades estaticas con la informacion de la conexion (DSN):
-    private static $dbName = 'hacienda';
-    private static $dbHost = 'localhost';
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
+     private static $dbName = 'hacienda';
+    private static $dbHost = 'baseapli.mysql.database.azure.com';
+    private static $dbUsername = 'admin123@baseapli';
+    private static $dbUserPassword = 'admin_1234';
     //Propiedad para control de la conexion:
     private static $conexion = null;
 
