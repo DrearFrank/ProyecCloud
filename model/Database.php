@@ -27,17 +27,25 @@ class Database {
      * Metodo estatico que crea una conexion a la base de datos.
      * @return type
      */
-    public static function connect() {
-        // Una sola conexion para toda la aplicacion (singleton):
-        if (null == self::$conexion) {
-            try {
-                self::$conexion = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
-                            } catch (PDOException $e) {
-                die($e->getMessage());
-            }
-        }
-        return self::$conexion;
+     public static function connect()
+    {
+        $pdo = new PDO('mysql:host=hacienda.mysql.database.azure.com;dbname=hacienda;charset=utf8','haciendaleon@hacienda', 'admin2018#');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
+        return $pdo;
     }
+//    public static function connect() {
+//        // Una sola conexion para toda la aplicacion (singleton):
+//        if (null == self::$conexion) {
+//            try {
+//                self::$conexion = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
+//                            } catch (PDOException $e) {
+//                die($e->getMessage());
+//            }
+//        }
+//        return self::$conexion;
+//    }
+    
+    
 
     /**
      * Metodo estatico para desconexion de la bdd.
