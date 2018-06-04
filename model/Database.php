@@ -13,7 +13,7 @@ class Database {
     private static $dbUsername = 'haciendaleon@hacienda';
     private static $dbUserPassword = 'admin2018#';
     //Propiedad para control de la conexion:
-    private static $conexion = null;
+    private static $pdo = null;
 
     /**
      * No se permite instanciar esta clase, se utilizan sus elementos
@@ -35,14 +35,14 @@ class Database {
 //    }
     public static function connect() {
         // Una sola conexion para toda la aplicacion (singleton):
-        if (null == self::$conexion) {
+        if (null == self::$pdo) {
             try {
-                self::$conexion = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
+                self::$pdo = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
                             } catch (PDOException $e) {
                 die($e->getMessage());
             }
         }
-        return self::$conexion;
+        return self::$pdo;
     }
     
     
