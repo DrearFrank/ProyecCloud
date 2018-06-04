@@ -8,10 +8,10 @@
 class Database {
 
     //Propiedades estaticas con la informacion de la conexion (DSN):
-     private static $dbName = 'hacienda';
-    private static $dbHost = 'baseapli.mysql.database.azure.com';
-    private static $dbUsername = 'admin123@baseapli';
-    private static $dbUserPassword = 'admin_1234';
+    private static $dbName = 'Hacienda';
+    private static $dbHost = 'hacienda.mysql.database.azure.com';
+    private static $dbUsername = 'haciendaleon@hacienda';
+    private static $dbUserPassword = 'admin2018#';
     //Propiedad para control de la conexion:
     private static $conexion = null;
 
@@ -32,7 +32,7 @@ class Database {
         if (null == self::$conexion) {
             try {
                 self::$conexion = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
-            } catch (PDOException $e) {
+                            } catch (PDOException $e) {
                 die($e->getMessage());
             }
         }
